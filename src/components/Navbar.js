@@ -4,9 +4,9 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div className='bg-blue-800'>
+    <div>
       <div className='flex flex-row justify-between'>
-        <img src='' alt='img'></img>
+        <img src="https://i.fbcd.co/products/original/2dc6bb26335da80bc3ce9f4ccb8aab41af083c279f43d9a59e11acdccf0909d7.jpg" alt='img' height="100px" width="100px" />
 
         <div className='flex'>
         <NavLink to="/">

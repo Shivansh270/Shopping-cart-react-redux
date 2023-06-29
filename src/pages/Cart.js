@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import CartItem from '../components/CartItem'
 
 const Cart = () => {
 
@@ -15,7 +16,7 @@ const Cart = () => {
     <div>
       {
         cart.length > 0 ? ( 
-          <div>
+          <div> 
             <div>{
               cart.map((item,index) => {
                 return <CartItem key={item.id} item={item} itemIndex={index}/>
