@@ -1,25 +1,39 @@
 import React from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
+import { useSelector } from "react-redux";
+
 
 const Navbar = () => {
+  const { cart } = useSelector((state) => state);
   return (
-    <div>
-      <div className='flex flex-row justify-between'>
-        <img src="https://i.fbcd.co/products/original/2dc6bb26335da80bc3ce9f4ccb8aab41af083c279f43d9a59e11acdccf0909d7.jpg" alt='img' height="100px" width="100px" />
-
-        <div className='flex'>
+    <div className="w-[100%]">
+      <nav className=" flex justify-between items-center text-slate-200 h-20 max-w-6xl md:mx-auto mx-6">
         <NavLink to="/">
-          <p>Home</p>
+          <div className="ml-5">
+            <img src="./logo.png" className="w-[180px]" alt="logo" />
+          </div>
         </NavLink>
+
+        <div className='flex justify-center items-center gap-x-2 font-medium text-slate-100 mr-5 space-x-6'>
+          <NavLink to="/">
+            <p>Home</p>
+          </NavLink>
         
         <NavLink to="/cart">
-          <FaShoppingCart/>
+          <div className="relative">
+            <FaShoppingCart className="text-3xl" />
+            {cart?.length > 0 && (
+              <span className="absolute -top-1 -right-2 bg-green-600 text-xs w-5 h-5 flex justify-center items-center animate-bounce rounded-full text-white">
+                {cart?.length}
+              </span>
+            )}
+          </div>
         </NavLink>
 
          
         </div>
-      </div>
+      </nav>
     </div>
   )
 }

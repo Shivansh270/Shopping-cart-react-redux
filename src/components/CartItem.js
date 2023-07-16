@@ -1,5 +1,5 @@
 import React from 'react'
-import { FcDeleteDatabase }  from "react-icons/fc";
+import { MdDelete } from "react-icons/md";
 import { useDispatch } from 'react-redux';
 import { remove } from '../redux/Slices/CartSlice';
 import { toast } from 'react-hot-toast';
@@ -15,21 +15,25 @@ const CartItem = ({item,itemIndex}) => {
 
   return (
 
-    <div>
-      <div>
+    <div className=" flex justify-center items-center">
+      <div className="flex justify-center items-center gap-x-8 border-b-4 border-gray-300 ">
 
         <div>
-          <img src={item.image}></img>
+          <img src={item.image}
+           className="w-[270px] mb-5"
+          ></img>
         </div>
 
-        <div>
-          <h1>{item.title}</h1>
-          <h1>{item.description}</h1>
+        <div className="flex flex-col justify-center items-start gap-y-3 mb-5">
+          <h1 className="font-semibold">{item.title}</h1>
+          <h1 className="text-[13px] text-gray-700">
+            {item.description.split(" ").slice(0, 15).join(" ") + "..."}
+          </h1>
 
-          <div>
-            <p>{item.price}</p>
-            <div onClick={removeFromCart}>
-              <FcDeleteDatabase/>
+          <div className="flex justify-between items-center w-full">
+            <p className="text-green-700 font-semibold">{item.price}</p>
+            <div onClick={removeFromCart} className="bg-red-200 p-2 rounded-full hover:cursor-pointer text-red">     
+              <MdDelete color="red" size="13" />
             </div>
           </div>
           

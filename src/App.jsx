@@ -8,7 +8,7 @@ const App = () => {
   
   return (
     <div>
-      <div>
+      <div className="bg-slate-900 fixed top-0 z-[100] w-screen">
         <Navbar/>
       </div>
 
